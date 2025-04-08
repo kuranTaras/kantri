@@ -78,3 +78,63 @@ $('.search-close').on('click', function()  {
     $('#body-id').removeClass('body-scroll');
     $('.search').removeClass('open-search');
 })
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.search-cont-right').each(function() {
+    $(this).on('click', () => {
+        $('.search-result').addClass('open-search-result');
+    })
+})
+
+$('.search-close').on('click', function()  {
+    $('.search-result').removeClass('open-search-result');
+})
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.burger-arrow').each(function (index) {
+    $(this).on('click', () => {
+        if ($('.burger-menu-block').eq(index).hasClass('active')) {
+            $('.burger-menu__block').slideUp()
+            $('.burger-menu-block').removeClass('active')
+        } else {
+            $('.burger-menu__block').slideUp()
+            $('.burger-menu-block').removeClass('active')
+
+            $('.burger-menu__block').eq(index).slideDown()
+            $('.burger-menu-block').eq(index).addClass('active')
+        }
+    })
+})
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.burger-language-block').each(function (index) {
+    $(this).on('click', () => {
+        if ($('.burger-language-block').eq(index).hasClass('active')) {
+            $('.burger-language_block').slideUp()
+            $('.burger-language-block').removeClass('active')
+        } else {
+            $('.burger-language_block').slideUp()
+            $('.burger-language-block').removeClass('active')
+
+            $('.burger-language_block').eq(index).slideDown()
+            $('.burger-language-block').eq(index).addClass('active')
+        }
+    })
+})
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.header__block_search-open').on('click', function()  {
+    $('#body-id').addClass('body-scroll');
+    $('.burger').addClass('burger-open');
+})
+
+$('.burger-close').each(function() {
+    $(this).on('click', () => {
+        $('#body-id').removeClass('body-scroll');
+        $('.burger').removeClass('burger-open');
+    })
+})
