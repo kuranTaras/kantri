@@ -138,3 +138,67 @@ $('.burger-close').each(function() {
         $('.burger').removeClass('burger-open');
     })
 })
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".swiper-js", {
+        breakpoints: {
+            320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+            },
+            1000: {
+                slidesPerView: 2,
+                spaceBetween: 20
+                },
+        },
+        navigation: {
+            nextEl: ".carusel-btn-next",
+            prevEl: ".carusel-btn-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination-1",
+            type: "progressbar",
+        },
+        loop: true, 
+        // autoplay: {
+        //     delay: 3000, 
+        //     disableOnInteraction: false 
+        // }
+      });
+});
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".swiper-js2", {
+        breakpoints: {
+            320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+            },
+            999: {
+            slidesPerView: 2,
+            spaceBetween: 20
+            },
+            1249: {
+            slidesPerView: 3,
+            spaceBetween: 24
+            },
+        },
+        // navigation: {
+        //     nextEl: ".carusel-btn-next",
+        //     prevEl: ".carusel-btn-prev",
+        // },
+        pagination: {
+            el: ".swiper-pagination-2",
+            type: "progressbar",
+        },
+        loop: true, 
+        // autoplay: {
+        //     delay: 3000, 
+        //     disableOnInteraction: false 
+        // }
+      });
+});
