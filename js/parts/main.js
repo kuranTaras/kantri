@@ -293,3 +293,99 @@ $('.questions-modul').each(function (index) {
         }
     })
 })
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const swiper = new Swiper(".swiper-js5", {
+//         breakpoints: {
+//             320: {
+//             slidesPerView: 1,
+//             spaceBetween: 20
+//             },
+//             1000: {
+//             slidesPerView: 2,
+//             spaceBetween: 20
+//             },
+//             1250: {
+//             slidesPerView: 3,
+//             spaceBetween: 20
+//             },
+//         },
+//         navigation: {
+//             nextEl: ".carusel-btn5-next",
+//             prevEl: ".carusel-btn5-prev",
+//         },
+//         pagination: {
+//             el: ".swiper-pagination-5",
+//             type: "progressbar",
+//         },
+//         // loop: true, 
+//         // autoplay: {
+//         //     delay: 3000, 
+//         //     disableOnInteraction: false 
+//         // }
+//       });
+// });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var mainSwiper = new Swiper(".swiper-js5", {
+        breakpoints: {
+            320: {
+            slidesPerView: 1,
+            spaceBetween: 0
+            },
+            1000: {
+            slidesPerView: 2,
+            spaceBetween: 20
+            },
+            1250: {
+            slidesPerView: 3,
+            spaceBetween: 20
+            },
+        },
+
+        navigation: {
+            nextEl: ".carusel-btn5-next",
+            prevEl: ".carusel-btn5-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination-5",
+            type: "progressbar",
+        },
+    });
+
+    var miniSwiper = new Swiper(".swiper-js5-mini", {
+        breakpoints: {
+            320: {
+            slidesPerView: 3,
+            spaceBetween: 10
+            }
+        },
+
+        on: {
+            slideChange: function () {
+                var activeIndex = this.activeIndex;
+                var miniSlides = document.querySelectorAll('.swiper-js5-mini .swiper-slide');
+                miniSlides.forEach(function (slide, index) {
+                    slide.classList.remove('active');
+                });
+                miniSlides[activeIndex].classList.add('active');
+            }
+        }
+
+    }); 
+
+        mainSwiper.controller.control = miniSwiper;
+        miniSwiper.controller.control = mainSwiper;
+
+        var miniSlides = document.querySelectorAll('.swiper-js5-mini .swiper-slide');
+            miniSlides.forEach(function(slide, index) {
+            slide.addEventListener('click', function() {
+                mainSwiper.slideTo(index);
+            });
+        });
+
+});
