@@ -202,3 +202,94 @@ document.addEventListener('DOMContentLoaded', () => {
         // }
       });
 });
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".swiper-js3", {
+        breakpoints: {
+            320: {
+            slidesPerView: 1.3,
+            spaceBetween: 16
+            },
+            759: {
+            slidesPerView: 2.3,
+            spaceBetween: 20
+            },
+            1249: {
+            slidesPerView: 3.3,
+            spaceBetween: 38
+            },
+            1399: {
+            slidesPerView: 4,
+            spaceBetween: 38
+            },
+        },
+        pagination: {
+            el: ".swiper-pagination-3",
+            type: "progressbar",
+        },
+      });
+});
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', function () {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // Custom options
+    });
+  });
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".swiper-js4", {
+        breakpoints: {
+            320: {
+            slidesPerView: 2,
+            spaceBetween: 16
+            },
+            500: {
+            slidesPerView: 3,
+            spaceBetween: 16
+            },
+            759: {
+            slidesPerView: 4,
+            spaceBetween: 16
+            },
+            999: {
+            slidesPerView: 5,
+            spaceBetween: 16
+            },
+            1249: {
+            slidesPerView: 6,
+            spaceBetween: 16
+            },
+            1399: {
+            slidesPerView: 7,
+            spaceBetween: 16
+            },
+        },
+        pagination: {
+            el: ".swiper-pagination-4",
+            type: "progressbar",
+        },
+      });
+});
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.questions-modul').each(function (index) {
+    $(this).on('click', () => {
+        if ($('.questions-modul').eq(index).hasClass('active')) {
+            $('.questions-text').slideUp()
+            $('.questions-modul').removeClass('active')
+        } else {
+            $('.questions-text').slideUp()
+            $('.questions-modul').removeClass('active')
+
+            $('.questions-text').eq(index).slideDown()
+            $('.questions-modul').eq(index).addClass('active')
+        }
+    })
+})
