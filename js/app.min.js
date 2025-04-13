@@ -70,25 +70,25 @@ $(window).on('scroll', function() {
 $('.header__block__search').each(function() {
     $(this).on('click', () => {
         $('#body-id').addClass('body-scroll');
-        $('.search').addClass('open-search');
+        $('.search1').addClass('open-search');
     })
 })
 
-$('.search-close').on('click', function()  {
+$('.search1-close').on('click', function()  {
     $('#body-id').removeClass('body-scroll');
-    $('.search').removeClass('open-search');
+    $('.search1').removeClass('open-search');
 })
 
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
 
-$('.search-cont-right').each(function() {
+$('.search1-cont-right').each(function() {
     $(this).on('click', () => {
-        $('.search-result').addClass('open-search-result');
+        $('.search1-result').addClass('open-search-result');
     })
 })
 
-$('.search-close').on('click', function()  {
-    $('.search-result').removeClass('open-search-result');
+$('.search1-close').on('click', function()  {
+    $('.search1-result').removeClass('open-search-result');
 })
 
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el: ".swiper-pagination-2",
             type: "progressbar",
         },
-        loop: true, 
+        // loop: true, 
         // autoplay: {
         //     delay: 3000, 
         //     disableOnInteraction: false 
@@ -296,39 +296,6 @@ $('.questions-modul').each(function (index) {
 
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const swiper = new Swiper(".swiper-js5", {
-//         breakpoints: {
-//             320: {
-//             slidesPerView: 1,
-//             spaceBetween: 20
-//             },
-//             1000: {
-//             slidesPerView: 2,
-//             spaceBetween: 20
-//             },
-//             1250: {
-//             slidesPerView: 3,
-//             spaceBetween: 20
-//             },
-//         },
-//         navigation: {
-//             nextEl: ".carusel-btn5-next",
-//             prevEl: ".carusel-btn5-prev",
-//         },
-//         pagination: {
-//             el: ".swiper-pagination-5",
-//             type: "progressbar",
-//         },
-//         // loop: true, 
-//         // autoplay: {
-//         //     delay: 3000, 
-//         //     disableOnInteraction: false 
-//         // }
-//       });
-// });
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
     var mainSwiper = new Swiper(".swiper-js5", {
@@ -387,5 +354,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 mainSwiper.slideTo(index);
             });
         });
+});
 
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper(".swiper-js6", {
+        breakpoints: {
+            320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+            },
+            760: {
+                slidesPerView: 2,
+                spaceBetween: 20
+                },
+            1000: {
+                slidesPerView: 3,
+                spaceBetween: 20
+                },
+        },
+        pagination: {
+            el: ".swiper-pagination-6",
+            type: "progressbar",
+        },
+      });
 });
