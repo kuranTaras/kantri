@@ -380,3 +380,84 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
 });
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
+
+$('.reviews-popup-open').each(function () {
+    $(this).on('click', function (e) {
+        e.preventDefault();
+
+        const block = $(this).closest('.reviews-block');
+        const name = block.find('.reviews-block-top-name').text();
+        const date = block.find('.reviews-block-top-data').text();
+        const text = block.find('.reviews-block-text').text();
+        const imgs = block.find('.reviews-block_img');
+
+        $('.reviews__popup-cont-name').text(name);
+        $('.reviews__popup-cont-data').text(`Дата публікаці: ${date}`);
+        $('.reviews__popup-cont-text').text(text);
+
+        const bigWrapper = $('.swiper-js7 .swiper-wrapper');
+        const miniWrapper = $('.swiper-js7-mini .swiper-wrapper');
+        bigWrapper.empty();
+        miniWrapper.empty();
+
+        let hasValidImages = false;
+        imgs.each(function () {
+            const src = $(this).attr('src');
+            if (src && src.trim() !== '') {
+                hasValidImages = true;
+
+                const imgBig = `
+                    <div class="carusel-info swiper-slide">
+                        <img class="carusel-foto-img" src="${src}" alt="">
+                    </div>`;
+                bigWrapper.append(imgBig);
+                miniWrapper.append(imgBig);
+            }
+        });
+
+        if (hasValidImages) {
+            $('.reviews__popup--cont').show();
+            $('.reviews__popup-cont').css('width', 'calc(50% - 20px)');
+
+            if (window.swiper7 && window.swiper7Mini) {
+                swiper7.update();
+                swiper7.slideTo(0);
+                swiper7Mini.update();
+                swiper7Mini.slideTo(0);
+            }
+        } else {
+            $('.reviews__popup--cont').hide();
+            $('.reviews__popup-cont').css('width', '100%');
+        }
+
+        $('#body-id').addClass('body-scroll');
+        $('.reviews-popup').addClass('open-reviews-popup');
+    });
+});
+
+$('.reviews_popup-close').on('click', function () {
+    $('#body-id').removeClass('body-scroll');
+    $('.reviews-popup').removeClass('open-reviews-popup');
+});
+
+
+window.swiper7Mini = new Swiper('.swiper-js7-mini', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+});
+
+window.swiper7 = new Swiper('.swiper-js7', {
+    spaceBetween: 10,
+    navigation: {
+        nextEl: '.carusel-btn7-next',
+        prevEl: '.carusel-btn7-prev',
+    },
+    thumbs: {
+        swiper: window.swiper7Mini
+    }
+});
+
+// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->

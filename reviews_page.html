@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./fonts/mabry_pro/stylesheet.css">
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.31/dist/fancybox.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <link rel="stylesheet" href="css/swiper.css">
     <link rel="stylesheet" href="css/app.min.css">
@@ -77,7 +77,7 @@
                                     <span class="header-services-title">Послуги</span>
                                     <div class="header-services_cont">
                                         <div class="header-services__cont">
-                                            <span class="header-services__cont-title">Будівництво</span>
+                                            <a class="header-services__cont-title" href="">Будівництво</a>
                                             <p class="header-services__cont-text">Реалізовуємо об’єкти з найвищими категоріями складності</p>
                                             <a class="header-services__cont-btn" href="">
                                                 <div class="header-services__cont_btn">
@@ -89,7 +89,7 @@
                                             </a>
                                         </div>
                                         <div class="header-services__cont header-services__cont-not">
-                                            <span class="header-services__cont-title">Інженерія</span>
+                                            <a class="header-services__cont-title" href="">Інженерія</a>
                                             <p class="header-services__cont-text">Забезпечуємо розробку проектів для будівель  будь-якої складності</p>
                                             <a class="header-services__cont-btn" href="">
                                                 <div class="header-services__cont_btn">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="header-services_cont">
                                         <div class="header-services__cont">
-                                            <span class="header-services__cont-title">Проектування</span>
+                                            <a class="header-services__cont-title" href="">Проектування</a>
                                             <p class="header-services__cont-text">Забезпечуємо розробку проектів для будівель будь-якої складності</p>
                                             <a class="header-services__cont-btn" href="">
                                                 <div class="header-services__cont_btn">
@@ -115,7 +115,7 @@
                                             </a>
                                         </div>
                                         <div class="header-services__cont header-services__cont-not">
-                                            <span class="header-services__cont-title">Дизайн</span>
+                                            <a class="header-services__cont-title" href="">Дизайн</a>
                                             <p class="header-services__cont-text">Задовольняємо будь-який запит та ринкову потребу в архітектурній ніші</p>
                                             <a class="header-services__cont-btn" href="">
                                                 <div class="header-services__cont_btn">
@@ -383,11 +383,11 @@
                 <div class="reviews__block">
                     <div class="reviews-block-img">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
-                        <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
-                        <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
+                        <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
+                        <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -407,12 +407,12 @@
                 </div>
                 <div class="reviews__block">
                     <div class="reviews-block-img">
-                        <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
-                        <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
+                        <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
+                        <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -432,10 +432,12 @@
                 </div>
                 <div class="reviews__block">
                     <div class="reviews-block-img">
-                        
+                        <img class="reviews-block_img" src="" alt="">
+                        <img class="reviews-block_img" src="" alt="">
+                        <img class="reviews-block_img" src="" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
-                        <div class="header-services__cont_btn reviews-block-btn">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
+                        <div class="header-services__cont_btn reviews-block-btn reviews-popup-open">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
                             </svg>                                                
@@ -457,9 +459,8 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
-                        <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -484,7 +485,7 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -509,7 +510,7 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -534,7 +535,7 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -559,7 +560,7 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -584,7 +585,7 @@
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-2.webp" alt="">
                         <img class="reviews-block_img" src="./img/rewievs-img-mini-1.webp" alt="">
                     </div>
-                    <a class="header-services__cont-btn" href="">
+                    <a class="header-services__cont-btn reviews-popup-open" href="javascript:void(0);">
                         <div class="header-services__cont_btn reviews-block-btn">
                             <svg class="header-services__cont_btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.488 10.8333L10.8332 15.4881L12.0117 16.6666L18.0891 10.5892C18.4145 10.2637 18.4145 9.73613 18.0891 9.41071L12.0117 3.33325L10.8332 4.51176L15.488 9.16663L1.6665 9.16663L1.6665 10.8333L15.488 10.8333Z" fill="white"/>
@@ -596,7 +597,7 @@
             </div>
         </div>
         <nav class="search_yes-nav">
-            <a class="search_yes-nav-block" href="">
+            <a class="search_yes-nav-block search_yes-nav--block" href="">
                 <svg class="search_yes-nav-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.4142 13.0001L11 18.5859L9.5858 20.0001L2.2929 12.7072C1.9024 12.3166 1.9024 11.6835 2.2929 11.293L9.5858 4L11 5.41421L5.4142 11.0001L22 11.0001V13.0001L5.4142 13.0001Z" fill="#37373F"/>
                 </svg>                    
@@ -623,6 +624,81 @@
                 <input class="advice-input" type="text" placeholder="Ваше ім’я">
                 <input class="advice-input" type="text" placeholder="Номер телефону">
                 <button class="advice-btn">Відправити заявку</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-popup">
+        <div class="reviews_popup">
+            <svg class="reviews_popup-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5858 12L3 19.5858L4.41421 21.0001L12 13.4142L19.5858 21L21 19.5858L13.4142 12L21 4.41421L19.5858 3L12 10.5858L4.41421 3.00009L3 4.41431L10.5858 12Z" fill="#37373F"/>
+            </svg>                
+            <div class="reviews__popup">
+                <div class="reviews__popup-cont reviews__popup--cont">
+                    <div class="projects carusel-foto">
+                        <div class="projects-cont reviews__popup_cont">
+                            <div class="projects__cont carusel-foto__cont reviews__popup__cont">
+                                <div class="carusel">
+                                    <div class="swiper-js7 swiper">
+                                        <div class="carusel-block swiper-wrapper">
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>     
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>   
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>   
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>  
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>             
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carusel carusel_mini">
+                                    <div class="swiper-js7-mini swiper">
+                                        <div class="carusel-block swiper-wrapper">
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>     
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>   
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>   
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>  
+                                            <div class="carusel-info swiper-slide">
+                                                <img class="carusel-foto-img" src="" alt="">
+                                            </div>             
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carusel-btn7">     
+                                    <svg class="carusel-btn7-prev" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#DEDEDE"/>
+                                        <path d="M23.4142 31L29 36.5858L27.5858 38L20.2929 30.7071C19.9024 30.3165 19.9024 29.6834 20.2929 29.2929L27.5858 21.9999L29 23.4141L23.4142 29H40V31H23.4142Z" fill="#37373F"/>
+                                    </svg>                                                   
+                                    <svg class="carusel-btn7-next" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#DEDEDE"/>
+                                        <path d="M36.5858 31L31 36.5858L32.4142 38L39.7071 30.7071C40.0976 30.3165 40.0976 29.6834 39.7071 29.2929L32.4142 21.9999L31 23.4141L36.5858 29H20V31H36.5858Z" fill="#37373F"/>
+                                    </svg>                                                                                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__popup-cont reviews__popup---cont">
+                    <span class="reviews__popup-cont-data">Дата публікаці: 20 вересня 2025</span>
+                    <span class="reviews__popup-cont-name">Сергій</span>
+                    <p class="reviews__popup-cont-text">Звернувся до даної компанії з приводу консультації по розробці проектної документації. Отримав кваліфіковану відповідь на поставлені запитання. Співробітники ТОВ «Будівельна індустрія кантріінвестбуд» запропонували свої послуги з розробки проекту. Все було виконано вчасно та з урахуванням моїх побажань</p>
+                </div>
             </div>
         </div>
     </section>
@@ -688,7 +764,7 @@
         </div>
     </footer>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.31/dist/fancybox.umd.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/jquery.js"></script>
