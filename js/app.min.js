@@ -390,7 +390,8 @@ $('.reviews-popup-open').each(function () {
         const block = $(this).closest('.reviews-block');
         const name = block.find('.reviews-block-top-name').text();
         const date = block.find('.reviews-block-top-data').text();
-        const text = block.find('.reviews-block-text').text();
+        // const text = block.find('.reviews-block-text').text();
+        const text = block.find('.reviews-block-text').data('long-text') || '';
         const imgs = block.find('.reviews-block_img');
 
         $('.reviews__popup-cont-name').text(name);
