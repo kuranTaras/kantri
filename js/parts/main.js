@@ -297,64 +297,104 @@ $('.questions-modul').each(function (index) {
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
 
 document.addEventListener('DOMContentLoaded', function () {
+    var mainSlides = document.querySelectorAll('.swiper-js5 .swiper-slide');
+    var miniSlides = document.querySelectorAll('.swiper-js5-mini .swiper-slide');
+    const miniContainer = document.querySelector('.swiper-js5-mini');
+    const mainWrapper = document.querySelector('.swiper-js5');
 
-    var mainSwiper = new Swiper(".swiper-js5", {
-        breakpoints: {
-            320: {
-            slidesPerView: 1,
-            spaceBetween: 0
-            },
-            1000: {
-            slidesPerView: 2,
-            spaceBetween: 20
-            },
-            1250: {
-            slidesPerView: 3,
-            spaceBetween: 20
-            },
-        },
+    var mainSwiper;
+    var miniSwiper;
 
-        navigation: {
-            nextEl: ".carusel-btn5-next",
-            prevEl: ".carusel-btn5-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination-5",
-            type: "progressbar",
-        },
-    });
+    function getMainSlidesPerView() {
+        var count = mainSlides.length;
+        var width = window.innerWidth;
 
-    var miniSwiper = new Swiper(".swiper-js5-mini", {
-        breakpoints: {
-            320: {
-            slidesPerView: 3,
-            spaceBetween: 10
+        if (count >= 3 && width >= 1250) return 3;
+        if (count >= 2 && width >= 1000) return 2;
+        return 1;
+    }
+
+    function getMiniSlidesPerView() {
+        var count = miniSlides.length;
+        if (count >= 3) return 3;
+        if (count === 2) return 2;
+        return 1;
+    }
+
+    function applySingleSlideStyle() {
+        const isSingle = mainSlides.length === 1;
+        const isWideScreen = window.innerWidth >= 1000;
+
+        mainSlides.forEach(slide => {
+            if (isSingle && isWideScreen) {
+                slide.classList.add('single-slide-wide');
+            } else {
+                slide.classList.remove('single-slide-wide');
             }
-        },
+        });
+    }
 
-        on: {
-            slideChange: function () {
-                var activeIndex = this.activeIndex;
-                var miniSlides = document.querySelectorAll('.swiper-js5-mini .swiper-slide');
-                miniSlides.forEach(function (slide, index) {
-                    slide.classList.remove('active');
-                });
-                miniSlides[activeIndex].classList.add('active');
-            }
+    function initSwipers() {
+        if (mainSwiper) mainSwiper.destroy(true, true);
+        if (miniSwiper) miniSwiper.destroy(true, true);
+
+        applySingleSlideStyle();
+
+        mainSwiper = new Swiper(".swiper-js5", {
+            slidesPerView: getMainSlidesPerView(),
+            spaceBetween: 20,
+            watchOverflow: true,
+            navigation: {
+                nextEl: ".carusel-btn5-next",
+                prevEl: ".carusel-btn5-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination-5",
+                type: "progressbar",
+            },
+        });
+
+        if (miniSlides.length <= 1) {
+            if (miniContainer) miniContainer.style.display = 'none';
+            return;
+        } else {
+            if (miniContainer) miniContainer.style.display = '';
         }
 
-    }); 
+        miniSwiper = new Swiper(".swiper-js5-mini", {
+            slidesPerView: getMiniSlidesPerView(),
+            spaceBetween: 10,
+            watchOverflow: true,
+
+            on: {
+                slideChange: function () {
+                    var activeIndex = this.activeIndex;
+                    miniSlides.forEach(slide => slide.classList.remove('active'));
+                    if (miniSlides[activeIndex]) {
+                        miniSlides[activeIndex].classList.add('active');
+                    }
+                }
+            }
+        });
 
         mainSwiper.controller.control = miniSwiper;
         miniSwiper.controller.control = mainSwiper;
 
-        var miniSlides = document.querySelectorAll('.swiper-js5-mini .swiper-slide');
-            miniSlides.forEach(function(slide, index) {
-            slide.addEventListener('click', function() {
+        miniSlides.forEach(function (slide, index) {
+            slide.addEventListener('click', function () {
                 mainSwiper.slideTo(index);
             });
         });
+    }
+
+    initSwipers();
+    window.addEventListener('resize', () => {
+        applySingleSlideStyle();
+        initSwipers();
+    });
 });
+
+
 
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
 
@@ -383,6 +423,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
 
+let swiper7Mini;
+let swiper7;
+
+function initSwiper7(count) {
+    if (swiper7Mini) swiper7Mini.destroy(true, true);
+    if (swiper7) swiper7.destroy(true, true);
+
+    let slidesPerViewMini = 1;
+    if (count >= 3) slidesPerViewMini = 3;
+    else if (count === 2) slidesPerViewMini = 2;
+
+    swiper7Mini = new Swiper('.swiper-js7-mini', {
+        slidesPerView: slidesPerViewMini,
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+    });
+
+    swiper7 = new Swiper('.swiper-js7', {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.carusel-btn7-next',
+            prevEl: '.carusel-btn7-prev',
+        },
+        thumbs: {
+            swiper: count > 1 ? swiper7Mini : null
+        }
+    });
+}
+
 $('.reviews-popup-open').each(function () {
     $(this).on('click', function (e) {
         e.preventDefault();
@@ -390,7 +459,6 @@ $('.reviews-popup-open').each(function () {
         const block = $(this).closest('.reviews-block');
         const name = block.find('.reviews-block-top-name').text();
         const date = block.find('.reviews-block-top-data').text();
-        // const text = block.find('.reviews-block-text').text();
         const text = block.find('.reviews-block-text').data('long-text') || '';
         const imgs = block.find('.reviews-block_img');
 
@@ -404,10 +472,13 @@ $('.reviews-popup-open').each(function () {
         miniWrapper.empty();
 
         let hasValidImages = false;
+        let imageCount = 0;
+
         imgs.each(function () {
             const src = $(this).attr('src');
             if (src && src.trim() !== '') {
                 hasValidImages = true;
+                imageCount++;
 
                 const imgBig = `
                     <div class="carusel-info swiper-slide">
@@ -422,12 +493,13 @@ $('.reviews-popup-open').each(function () {
             $('.reviews__popup--cont').show();
             $('.reviews__popup-cont').css('width', 'calc(50% - 20px)');
 
-            if (window.swiper7 && window.swiper7Mini) {
-                swiper7.update();
-                swiper7.slideTo(0);
-                swiper7Mini.update();
-                swiper7Mini.slideTo(0);
-            }
+            initSwiper7(imageCount);
+
+        if (imageCount === 1) {
+            $('.carusel_mini').css('display', 'none');
+        } else {
+            $('.carusel_mini').css('display', '');
+        }
         } else {
             $('.reviews__popup--cont').hide();
             $('.reviews__popup-cont').css('width', '100%');
@@ -442,23 +514,3 @@ $('.reviews_popup-close').on('click', function () {
     $('#body-id').removeClass('body-scroll');
     $('.reviews-popup').removeClass('open-reviews-popup');
 });
-
-
-window.swiper7Mini = new Swiper('.swiper-js7-mini', {
-    slidesPerView: 3,
-    spaceBetween: 10,
-    watchSlidesProgress: true,
-});
-
-window.swiper7 = new Swiper('.swiper-js7', {
-    spaceBetween: 10,
-    navigation: {
-        nextEl: '.carusel-btn7-next',
-        prevEl: '.carusel-btn7-prev',
-    },
-    thumbs: {
-        swiper: window.swiper7Mini
-    }
-});
-
-// ----------------->   ----------------->   ----------------->   ----------------->   ----------------->   ----------------->
